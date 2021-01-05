@@ -3,6 +3,12 @@
 # Thanks jootamam
 # https://jootamam.net/howto-initramfs-image.htm
 
+#Create all the symlinks to /bin/busybox
+/bin/busybox --install -s /bin/
+/bin/busybox --install -s /sbin/
+ln -s /bin /usr/bin
+ln -s /sbin /usr/sbin
+
 #Mount things needed by this script
 mount -t proc proc /proc
 mount -t sysfs sysfs /sys
@@ -12,9 +18,6 @@ echo 0 > /proc/sys/kernel/printk
 
 #Clear the screen
 clear
-
-#Create all the symlinks to /bin/busybox
-busybox --install -s
 
 #Create device nodes
 mknod /dev/null c 1 3
