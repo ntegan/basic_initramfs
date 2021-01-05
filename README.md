@@ -8,6 +8,7 @@ booted using qemu for testing.
 
 Can probably clone and run `make all` to build the three,
 and then `make run` to run in qemu.
+Tested on archlinux and ubuntu 18.04
 
 ## Dependencies
 * Docker
