@@ -1,4 +1,11 @@
 
+
+## Dependencies
+Probably can be built on Ubuntu but I tested on archlniux only.
+
+* Docker
+* sudo
+
 #### Adapted from
 
 https://jootamam.net/howto-initramfs-image.htm

@@ -68,5 +68,3 @@ install_os_to_rootfs_in_docker
 remote_root_password_in_rootfs
 enable_networking_in_rootfs
 unmount_rootfs
-
-rm -r $mount_point

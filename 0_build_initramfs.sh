@@ -75,5 +75,3 @@ get_busybox
 link_busy_box_to_sh
 create_init_script
 create_cpio_and_igz
-
-rm -r $work_dir/initramfs
