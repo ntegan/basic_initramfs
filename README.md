@@ -18,6 +18,11 @@ and then `make run` to run in qemu.
 
 `base-devel` or `build-essential`
 
+Extra for Ubuntu
+* flex
+* bison
+* libelf-dev
+
 ## Build a Busybox initramfs
 `0_build_initramfs.sh` contains the implementation of
 creating an initramfs from a downloaded statically compiled
