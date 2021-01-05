@@ -15,6 +15,7 @@ and then `make run` to run in qemu.
 * wget
 * git
 * qemu
+* cpio
 
 `base-devel` or `build-essential`
 
