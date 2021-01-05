@@ -6,6 +6,7 @@
 #Create all the symlinks to /bin/busybox
 /bin/busybox --install -s /bin/
 /bin/busybox --install -s /sbin/
+mkdir /usr
 ln -s /bin /usr/bin
 ln -s /sbin /usr/sbin
 
