@@ -23,11 +23,15 @@ and then `make run` to run in qemu.
 creating an initramfs from a downloaded statically compiled
 Busybox binary.
 
+https://streamable.com/hfwwgv
+
 ## Build a root filesystem
 `1_build_rootfs.sh` runs the archlinux docker container
 in order to create an archlinux base installation/root
 file system for the initramfs to switch to during
 the early boot process.
+
+https://streamable.com/sqdnna
 
 ## Building the linux kernel
 `2_build_kernel.sh` clones Linux from Torvalds' github
@@ -38,12 +42,16 @@ Note, cloning the whole linux repo takes forever.
 You can get your own kernel/bzImage and put it in `output`
 to skip this step.
 
-## Running the build images
+https://streamable.com/un4qth
+
+## Running the built images
 `3_run_qemu.sh` will boot a qemu/kvm guest in your terminal
 window and boot into the build initramfs+kernel+rootfs.
 Login to `root` user.
 
 Basic networking and editing with `vim` is available.
+
+https://streamable.com/kluuv0
 
 ## TODO
 setup the archlinux rootfs with locale and such
