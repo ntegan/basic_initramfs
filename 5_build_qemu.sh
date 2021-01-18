@@ -152,6 +152,7 @@ function make_rootfs {
     util-linux-libs
     libffi
     pcre
+    kmod
     )
     mkdir -p $my_dir/dest/var/lib/pacman
     sudo pacman -r $my_dir/dest -Sy ${packages[@]}
