@@ -168,6 +168,7 @@ if [[ ! -d $qemu_dir ]]; then get_qemu; fi
 if ! docker image inspect $build_container 1>/dev/null 2>&1; then make_docker_image; fi
 if [[ ! -d $my_dir/dest ]]; then build; fi
 # TODO add dependencies
+# TODO: this amount of dependencies works, see how many I can get rid of
 # TODO how did i disable installation of option/pc-bios/linnux-load roms?
 #lookup_dependencies
 #make_rootfs

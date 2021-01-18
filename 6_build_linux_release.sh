@@ -16,9 +16,11 @@ kernel_url=https://cdn.kernel.org/pub/linux/kernel/v${kernel_major_version}.x/li
 kernel_dir=linux-${kernel_version}
 
 if [[ ! -d $kernel_dir ]]; then get_kernel; fi
+# TODO install qemu bios in here
 #sudo make INSTALL_MOD_PATH=/home/ntegan/basic_initramfs/dest modules_install
 #cp arch/x86/boot/bzImage ../kernel
 # chroot ./dest; depmod $kernel_version
+# install busybox too
 a=(
 enabled kvm
 ntegan@arch-xen ~/basic_initramfs/linux-5.10.8 (git)-[master] % cat .config | grep KVM
