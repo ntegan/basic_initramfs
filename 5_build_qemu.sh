@@ -20,6 +20,7 @@ function build {
     configure_args=(
         --target-list=x86_64-softmmu \
         --audio-drv-list="" \
+        --disable-libudev \
         --enable-kvm \
         --disable-xen \
         --disable-xen-pci-passthrough \
@@ -116,6 +117,47 @@ function lookup_dependencies {
     set -x
     echo ${things[@]}
 }
+function make_rootfs {
+    couldnt_find=(
+    linux-vdso.so.1
+    #libudev.so.1
+    # uh oh, it's in systemd-libs
+    )
+    could_find=(
+    libpixman-1.so.0
+    libz.so.1
+    libgio-2.0.so.0
+    libgobject-2.0.so.0
+    libglib-2.0.so.0
+    libutil.so.1
+    libm.so.6
+    libpthread.so.0
+    libc.so.6
+    /lib64/ld-linux-x86-64.so.2
+    libgmodule-2.0.so.0
+    libmount.so.1
+    libresolv.so.2
+    libffi.so.7
+    libpcre.so.1
+    libdl.so.2
+    libblkid.so.1
+    librt.so.1
+    )
+    packages=(
+    pixman
+    zlib
+    glib2
+    glibc
+    util-linux
+    util-linux-libs
+    libffi
+    pcre
+    )
+    mkdir -p $my_dir/dest/var/lib/pacman
+    sudo pacman -r $my_dir/dest -Sy ${packages[@]}
+
+    cp $my_dir/misc/init_template2 $my_dir/dest/init
+}
 
 qemu_version=5.2.0
 qemu_dir=qemu-$qemu_version
@@ -126,4 +168,6 @@ if ! docker image inspect $build_container 1>/dev/null 2>&1; then make_docker_im
 if [[ ! -d $my_dir/dest ]]; then build; fi
 # TODO add dependencies
 # TODO how did i disable installation of option/pc-bios/linnux-load roms?
-lookup_dependencies
+#lookup_dependencies
+#make_rootfs
+
